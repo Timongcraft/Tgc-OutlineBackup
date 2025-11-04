@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Appenders>
+        <Console name="ConsoleSelf" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{[%d{dd.MM.yyyy HH:mm:ss} %level]: %msg%n%xEx{full}}{INFO=normal}"/>
+        </Console>
+        <Console name="ConsoleOther" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{[%d{dd.MM.yyyy HH:mm:ss} %level]: [%logger{1}] %msg%n%xEx{full}}{INFO=normal}" />
+        </Console>
+
+        <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss} %p]: %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="de.timongcraft.outlinebackup.Main" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleSelf"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="ConsoleOther"/>
+            <AppenderRef ref="File"/>
+        </Root>
+
+        <!-- Webhook
+        <Logger name="io.javalin" level="OFF" additivity="false"/>
+        <Logger name="org.eclipse.jetty" level="OFF" additivity="false"/>
+        -->
+    </Loggers>
+</Configuration>
