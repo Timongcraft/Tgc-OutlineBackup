@@ -28,9 +28,7 @@
             <AppenderRef ref="File"/>
         </Root>
 
-        <!-- Webhook
         <Logger name="io.javalin" level="OFF" additivity="false"/>
         <Logger name="org.eclipse.jetty" level="OFF" additivity="false"/>
-        -->
     </Loggers>
 </Configuration>
