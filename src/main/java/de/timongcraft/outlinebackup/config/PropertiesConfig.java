@@ -1,7 +1,6 @@
 package de.timongcraft.outlinebackup.config;
 
 import de.timongcraft.outlinebackup.api.model.collections.ExportFormat;
-import org.jetbrains.annotations.ApiStatus;
 
 public final class PropertiesConfig {
 
@@ -29,26 +28,13 @@ public final class PropertiesConfig {
     public static final int SCHEDULE_HOUR =
             Integer.parseInt(System.getProperty("schedule.hour", "2"));
 
-    public static final int INITIAL_POLL_DELAY_MILLIS =
-            Integer.parseInt(System.getProperty("poll.initial.delay.milliseconds", "2000"));
-
-    public static final int MAX_POLL_ATTEMPTS =
-            Integer.parseInt(System.getProperty("poll.max.attempts", "10"));
-
-    public static final int MAX_RETRY_ATTEMPTS =
-            Integer.parseInt(System.getProperty("ratelimit.max.attempts", "10"));
-
-    @ApiStatus.Experimental
     public static final String WEBHOOK_HOST = System.getProperty("webhook.host", "0.0.0.0");
 
-    @ApiStatus.Experimental
     public static final int WEBHOOK_PORT =
             Integer.parseInt(System.getProperty("webhook.port", "3000"));
 
-    @ApiStatus.Experimental
     public static final String WEBHOOK_PATH = System.getProperty("webhook.path", "/webhook");
 
-    @ApiStatus.Experimental
     public static final String WEBHOOK_SECRET = System.getProperty("webhook.secret", "");
 
     private PropertiesConfig() {}

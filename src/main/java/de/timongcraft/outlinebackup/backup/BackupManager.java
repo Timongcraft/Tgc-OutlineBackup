@@ -38,7 +38,6 @@ public class BackupManager {
             OutlineService.exportAllAsync(apiClient,
                     PropertiesConfig.EXPORT_FORMAT,
                     PropertiesConfig.INCLUDE_ATTACHMENTS, PropertiesConfig.INCLUDE_PRIVATE,
-                    PropertiesConfig.INITIAL_POLL_DELAY_MILLIS, PropertiesConfig.MAX_POLL_ATTEMPTS,
                     inputStream -> {
                         String timestamp = LocalDateTime.now().format(TimeUtils.FILE_TIMESTAMP_FORMAT);
                         String fileName = String.format("outline-export-%s.zip", timestamp);

@@ -43,7 +43,6 @@ public record FileOperation(String id, Type type, State state,
         /**
          * Determines if the operation is still in progress
          */
-        @ApiStatus.Experimental
         public boolean isInProgress() {
             return switch (this) {
                 case CREATING, UPLOADING -> true;
